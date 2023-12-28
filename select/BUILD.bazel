@@ -2,9 +2,9 @@
 genrule(
     name = "os",
     outs = ["os.txt"],
-    cmd = "echo 'hello genrule' > $@",
-    # cmd = select({
-    #     "@platforms//os:windows":"echo 'hello bazel' > $@",
-    #     "@platforms//os:linux":"echo 'hello bazel' > $@",
-    # }),
+    # cmd = "echo 'hello genrule' > $@",
+    cmd = select({
+        "@platforms//os:windows": "echo 'windows' > $@",
+        "@platforms//os:linux": "echo 'linux' > $@",
+    }),
 )
