@@ -6,5 +6,6 @@ genrule(
     cmd = select({
         "@platforms//os:windows": "echo 'os is windows' > $@",
         "@platforms//os:linux": "echo 'os is linux' > $@",
+        "//conditions:default": "echo 'os is unknown' > $@",
     }),
 )
